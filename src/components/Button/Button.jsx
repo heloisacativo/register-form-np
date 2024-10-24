@@ -3,7 +3,7 @@ export const Button = ({type,  color = 'bg-blue-normal hover:bg-stone-800', size
     const sizeClasses = {
          small: 'px-4 py-2 text-sm',
          medium: 'px-6 py-3 text-base',
-         large: 'px-8 py-3 text-lg'
+         large: 'xxs:py-2 xxs:px-6 px-8 py-3 text-lg'
     }
     return (
         <button type={type}
