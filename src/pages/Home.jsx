@@ -80,7 +80,7 @@ export const Home = () => {
     return (
       <div className="bg-dark-violet-background mx-0 overflow-hidden">
         <div className="flex flex-col md:grid md:grid-cols-[1fr_2fr] md:gap-4">
-          <div className="relative bg-dark-violet-background h-full w-full max-w-sm max-h-full">
+          <div className="max-md:hidden relative bg-dark-violet-background h-full w-full max-w-sm max-h-full">
             <img className="h-full w-full xl object-cover" src={IntroductoryPanelImage} alt="Introductory Panel"/>
             <div className="absolute inset-0 flex flex-col justify-start mt-10 items-center z-10">
               <div className="flex items-center mb-4">
