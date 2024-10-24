@@ -4,7 +4,7 @@ export const Input = ({placeholdercolor = "", placeholder ="", size = "medium", 
     const sizeClasses = {
         small: 'xxs:py-1 px-2 py-2 w-full text-sm',
         medium: 'xxs:py-1 px-2 py-1 w-full text-base',
-        large: 'xxs:py-1 px-2 py-3 w-full text-lg'
+        large: 'xxs:py-2 px-2 py-3 w-full text-lg'
    }
     
     return (
