@@ -124,7 +124,7 @@ export const Home = () => {
         draggable
         pauseOnHover
       />
-      <div className="flex flex-col md:grid md:grid-cols-[1fr_2fr] md:gap-4">
+      <div className="flex flex-col md:grid md:grid-cols-[1fr_2fr] md:gap-4 h-screen">
         <div className="max-md:hidden relative bg-dark-violet-background h-full w-full max-w-sm max-h-full">
           <img className="h-full w-full xl object-cover" src={IntroductoryPanelImage} alt="Introductory Panel" />
           <div className="absolute inset-0 flex flex-col justify-start mt-10 items-center z-10">
@@ -145,7 +145,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="bg-dark-violet-background flex justify-center items-center w-full px-5 md:px-20">
+        <div className="bg-dark-violet-background flex justify-center items-center w-full h-full px-5 md:px-20 overflow-y-auto">
           <div className="flex flex-col items-center justify-center w-full max-w-xl">
               <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-5 pt-5">
@@ -159,7 +159,7 @@ export const Home = () => {
                 {isLoading ? (
                 <SkeletonTheme className="w-full" baseColor="#202020" highlightColor="#444">
                   <p>
-                    <Skeleton className='p-2 my-6' count={5} />
+                    <Skeleton className='p-2 my-6 w-80' count={5} />
                   </p>
                 </SkeletonTheme>
 
