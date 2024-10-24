@@ -36,29 +36,39 @@ export const Home = () => {
     const { name, email, password, companyDocument, proposalValue } = formData;
 
     if (!name || !email || !password || !companyDocument || !proposalValue) {
-      toast.error('Por favor, preencha todos os campos obrigatórios.');
+      toast.error('Por favor, preencha todos os campos obrigatórios.', {
+    theme: 'dark'
+});
       return false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      toast.error('Por favor, insira um e-mail válido.');
+      toast.error('Por favor, insira um e-mail válido.', {
+    theme: 'dark'
+});
       return false;
     }
 
     if (password.length < 6) {
-      toast.error('A senha deve ter pelo menos 6 caracteres.');
+      toast.error('A senha deve ter pelo menos 6 caracteres.', {
+    theme: 'dark'
+});
       return false;
     }
 
     const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/;
     if (!cnpjRegex.test(companyDocument)) {
-      toast.error('Por favor, insira um CNPJ válido (XX.XXX.XXX/XXXX-XX).');
+      toast.error('Por favor, insira um CNPJ válido (XX.XXX.XXX/XXXX-XX).', {
+    theme: 'dark'
+});
       return false;
     }
 
     if (isNaN(parseFloat(proposalValue))) {
-      toast.error('Por favor, insira um valor de proposta válido.');
+      toast.error('Por favor, insira um valor de proposta válido.', {
+    theme: 'dark'
+});
       return false;
     }
 
@@ -114,7 +124,7 @@ export const Home = () => {
   return (
     <div className="bg-dark-violet-background mx-0 overflow-hidden">
       <ToastContainer
-        position="bottom-right"
+        position="bottom-left"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
