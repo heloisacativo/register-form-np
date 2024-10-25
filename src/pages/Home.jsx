@@ -12,6 +12,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
 export const Home = () => {
+  const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +31,10 @@ export const Home = () => {
       ...formData,
       [name]: value
     });
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
   };
 
   const validateData = () => {
@@ -59,9 +64,7 @@ export const Home = () => {
 
     const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/;
     if (!cnpjRegex.test(companyDocument)) {
-      toast.error('Por favor, insira um CNPJ válido (XX.XXX.XXX/XXXX-XX).', {
-    theme: 'dark'
-});
+      toast.error('Por favor, insira um CNPJ válido (XX.XXX.XXX/XXXX-XX).');
       return false;
     }
 
@@ -119,10 +122,11 @@ export const Home = () => {
     }
   };
 
+
   return (
     <div className="bg-dark-violet-background mx-0 overflow-hidden">
       <ToastContainer
-        position="bottom-left"
+        position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -172,7 +176,11 @@ export const Home = () => {
                 </SkeletonTheme>
 
                 ):
-                (<div className='w-full'><Input name="name" size="medium" label="Nome" placeholder="Digite seu nome" value={formData.name} onChange={handleChange} /><Input name="email" size="medium" label="E-mail" placeholder="Digite seu e-mail" value={formData.email} onChange={handleChange} /><Input name="password" size="medium" label="Senha" placeholder="Digite sua senha" value={formData.password} onChange={handleChange} /><Input name="companyName" size="medium" label="Nome da empresa" placeholder="Nome da empresa" value={formData.companyName} onChange={handleChange} /><Input name="companyDocument" size="medium" label="CNPJ" placeholder="Digite o CNPJ (Exemplo: XX.XXX.XXX/XXXX-XX)" value={formData.companyDocument} onChange={handleChange} /></div>)
+                (<div className='w-full'><Input color="bg-card" name="name" size="large" label="Nome" type='text' placeholder="Digite seu nome" value={formData.name} onChange={handleChange} />
+                <Input name="email" color="bg-card" size="large" label="E-mail" type='text' placeholder="Digite seu e-mail" value={formData.email} onChange={handleChange} />
+                <Input name="password" color="bg-card" size="large" label="Senha" type='password' placeholder="Digite sua senha" value={formData.password} onChange={handleChange} />
+                <Input name="companyName" color="bg-card" size="large" label="Nome da empresa" type='text' placeholder="Nome da empresa" value={formData.companyName} onChange={handleChange} />
+                <Input name="companyDocument" color="bg-card" size="large" label="CNPJ" type='text' placeholder="Digite o CNPJ (Exemplo: XX.XXX.XXX/XXXX-XX)" value={formData.companyDocument} onChange={handleChange} /></div>)
                 }
                    {isLoading ? (
                 <SkeletonTheme className="w-full" baseColor="#202020" highlightColor="#444">
@@ -183,17 +191,25 @@ export const Home = () => {
                 </SkeletonTheme>
 
                 ):
-                (<div className="flex gap-6">
-                  <Input name="proposalValue" size="large" label="Valor da proposta" placeholder="Valor da proposta" value={formData.proposalValue} onChange={handleChange} />
-                  <Input name="unitName" size="large" type="select" options={[
-                    { value: "", label: 'Selecione uma unidade' },
-                    { value: 'unidade 1', label: 'Unidade 1' },
-                    { value: 'unidade 2', label: 'Unidade 2' }
-                  ]} label="Unidade" placeholder="Digite a unidade" value={formData.unitName} onChange={handleChange} />
-                </div>)}
+
+                (
+                <>
+                <div className="flex gap-6">
+                  <Input name="proposalValue" size="large" color="bg-card" label="Valor da proposta" placeholder="Valor da proposta" value={formData.proposalValue} onChange={handleChange} />
+                  <Input name="unitName" color="bg-card" size="large" label="Unidade" placeholder="Digite a unidade" value={formData.unitName} onChange={handleChange} />
+                </div>
+                <Input name="imageAdd" size='large' type="file" label="Adicione uma imagem" onChange={handleFileChange}/>
+                {file && <p className='mt-2 text-blue-normal text-sm'>Arquivo selecionado: <span className='font-semibold'>
+                {`${file.name.length > 15 ? file.name.substring(0,12) + '...' : file.name}`} </span>
+                <span className='text-gray-500'>({file.name.split('.').pop()})</span>
+                </p>}  
+                </>
+              )
+                
+                }
                 <div className="flex gap-4 justify-end mt-2 pb-5">
                   <Button text='text-blue-light-text' color='bg-blue-normal-light' rounded='rounded-lg' size='large'>Cancelar</Button>
-                  <Button type="submit" text='text-blue-light-text' rounded='rounded-lg' size='large'>Entrar</Button>
+                  <Button type="submit" color='bg-primary' text='text-blue-light-text' rounded='rounded-lg' size='large'>Entrar</Button>
                 </div>
               </form>
           </div>
