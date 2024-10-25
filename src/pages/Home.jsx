@@ -66,9 +66,7 @@ export const Home = () => {
     }
 
     if (isNaN(parseFloat(proposalValue))) {
-      toast.error('Por favor, insira um valor de proposta válido.', {
-    theme: 'dark'
-});
+      toast.error('Por favor, insira um valor de proposta válido.');
       return false;
     }
 
