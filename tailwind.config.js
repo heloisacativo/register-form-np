@@ -11,7 +11,11 @@ export default {
       'blue-normal-light': '#25323A',
       'blue-light': '#ADADDF',
       'stormy-blue': '#476A98',
-      'stormy-blue-soft': '#84B4D4'
+      'stormy-blue-soft': '#84B4D4',
+      'sun': '#FFE87C',
+      'primary': '#6D28D9',
+      'card': '#090E1A',
+      'foreground': '#F9FAFB'
     },
     screens: {
       xxs: '360px',
