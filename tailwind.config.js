@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,jsx}"],
   theme: {
     colors: {
-      'dark-violet-background': '#030712',
+      'dark-violet-background': '#071028',
       'blue-light-text': '#8A92A4',
       'blue-normal': '#225E86',
       'blue-normal-light': '#25323A',
@@ -15,7 +15,8 @@ export default {
       'sun': '#FFE87C',
       'primary': '#6D28D9',
       'card': '#090E1A',
-      'foreground': '#F9FAFB'
+      'foreground': '#F9FAFB',
+      'red-pastel': '#AF5052'
     },
     screens: {
       xxs: '360px',
@@ -25,6 +26,9 @@ export default {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+    },
+    fontFamily: {
+      poppins: ['Poppins', 'system-ui', 'sans-serif'],
     },
     extend: {},
   },
