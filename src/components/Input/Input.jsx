@@ -1,3 +1,4 @@
+import { PhotoIcon } from '@heroicons/react/16/solid';
 import React, { useState } from 'react';
 
 export const Input = ({
@@ -45,9 +46,10 @@ export const Input = ({
                 <button
                   type="button"
                   onClick={handleClick}
-                  className="bg-card text-blue-normal border-blue-normal border-2 py-2 px-4 rounded-md focus:ring-2 focus:ring-stone-600 focus:outline-none hover:bg-violet-800 hover:text-white w-full text-start"
+                  className="text-blue-normal border-blue-normal border-2 py-2 px-4 rounded-md focus:ring-2 focus:ring-stone-600 focus:outline-none hover:bg-violet-800 hover:text-white w-full text-start flex items-center justify-between"
                 >
-                  Selecionar Arquivo
+                  Selecionar Imagem
+                  <PhotoIcon className="w-5 h-5 ml-2"/>
                 </button>
                 </div>
             ) : (
