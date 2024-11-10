@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Button = ({
     type,
-    color = 'bg-blue-normal hover:bg-stone-800',
+    color = 'bg-violet hover:bg-stone-800',
     size = 'medium',
     rounded = '',
     text = "",
