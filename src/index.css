@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: hsl(224, 71.4%, 4.1%);
+    --foreground: hsl(210, 20%, 98%);
+    --card: hsl(222, 47%, 7%);
+    --card-foreground: hsl(210, 20%, 98%);
+    
+    /* Cores Principais */
+    --primary-chart: hsl(263.4, 70%, 50.4%);
+    --primary-hover: hsl(330, 95%, 1%);
+    --primary-foreground: hsl(210, 0%, 98%);
+    
+    /* Cores Secundárias e Neutras */
+    --muted: hsl(215, 27.9%, 16.9%);
+    --muted-foreground: hsl(217.9, 10.6%, 64.9%);
+    
+    /* Cores de Ação */
+    --destructive: hsl(350, 100%, 40%);
+    --destructive-foreground: hsl(210, 20%, 98%);
+      /* Bordas */
+    --border: hsl(215, 27.9%, 16.9%);
+}
