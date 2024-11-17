@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NextPaymentStartsLogo from "../../assets/imgs/next-payment-starts.svg";
@@ -9,7 +8,7 @@ import * as Yup from 'yup';
 import Button from '../Button/Button.jsx';
 import Input from '../Input/Input.jsx';
 import { ChatBubbleOvalLeftIcon, TvIcon } from '@heroicons/react/16/solid';
-import { CogIcon } from '@heroicons/vue/24/outline';
+import FormSkeleton from '../FormSkeleton/FormSkeleton.jsx';
 
 const FormRegister = () => {
 
@@ -92,8 +91,8 @@ const FormRegister = () => {
     
         const dataToSend = {
           ...formData,
-          proposalValue: Number(formData.proposalValue), // Ensure this is a number
-          imageUrl: formData.imageUrl // Include the base64 string in the submission
+          proposalValue: Number(formData.proposalValue), 
+          imageUrl: formData.imageUrl 
         };
     
         try {
@@ -175,24 +174,37 @@ const FormRegister = () => {
         />
 
         <div className="bg-background flex justify-center items-center w-full h-screen px-5 md:px-20">
-        <div className="flex flex-col items-center justify-center w-full max-w-xl mt-10">  
-            <form onSubmit={handleSubmit} className="h-screen xxs:overflow-auto">
-              <div className="flex flex-col mb-5 pt-5">
+        <div className="flex flex-col items-center justify-center w-full max-w-xl">  
+            <form onSubmit={handleSubmit} className="h-screen flex flex-col justify-center">
+              
+              <div className="flex flex-col mb-5 pt-3">
               <img
                src={NextPaymentStartsLogo}
                alt="Logo Next Payment"
-               className="w-16 flex mb-5 z-10"
+               className="w-10 flex mb-3 z-10"
               />
-                <h1 className="md:text-3xl sm:text-3xl xxs:text-lg text-muted-foreground text-4xl">Cadastre-se</h1>
+                <h1 className="md:text-2xl sm:text-2xl text-1xl text-muted-foreground">Cadastre-se</h1>
               </div>
               {isLoading ? (
-                <SkeletonTheme className="w-full" baseColor="#202020" highlightColor="#444">
-                  <p>
-                    <Skeleton className='p-2 my-6 w-80' count={5} />
-                  </p>
-                </SkeletonTheme>
+               <FormSkeleton
+               baseColor="#333333"
+               highlightColor="#555555"
+               sections={3}
+               fieldsPerSection={2}
+               fieldHeight="40px"
+               fieldWidth="100%"
+               buttonCount={2}
+               buttonWidth="150px"
+               buttonHeight="45px"
+               extraFields={[
+                 { width: "100%", height: "40px" },
+                 { width: "100%", height: "40px" },
+               ]}
+             />
               ) : (
                 <div className='w-full'>
+                  <div className="flex gap-3 justify-between">
+                  <div className="flex-1">
                   <Input
                   name="name"
                   size="large"
@@ -202,7 +214,9 @@ const FormRegister = () => {
                   value={formData.name}
                   onChange={handleChange}
                   />
-                  {errors.name && <p className="text-destructive text-md -mt-5">{errors.name}</p>}
+                  {errors.name && <p className="text-destructive text-xs -mt-1">{errors.name}</p>}
+                  </div>
+                  <div className="flex-1">
                   <Input
                   name="email"
                   size="large"
@@ -212,8 +226,9 @@ const FormRegister = () => {
                   value={formData.email}
                   onChange={handleChange}
                   />
-                  {errors.email && <p className="text-destructive text-md -mt-5">{errors.email}</p>}
-
+                  {errors.email && <p className="text-destructive text-xs -mt-1">{errors.email}</p>}
+                  </div>
+                  </div>
                  
                   <div className="flex gap-3 justify-between">
                   <div className="flex-1">
@@ -226,7 +241,7 @@ const FormRegister = () => {
                   value={formData.companyName}
                   onChange={handleChange}
                   />
-                  {errors.companyName && <p className="text-destructive text-xs -mt-5">{errors.companyName}</p>}
+                  {errors.companyName && <p className="text-destructive text-xs -mt-1">{errors.companyName}</p>}
                   </div>
                   <div className="flex-1">
                    <Input name="companyDocument"
@@ -237,7 +252,7 @@ const FormRegister = () => {
                   value={formData.companyDocument}
                   onChange={handleChange}
                   />
-                  {errors.companyDocument && <p className="text-destructive text-xs -mt-5">{errors.companyDocument}</p>}
+                  {errors.companyDocument && <p className="text-destructive text-xs -mt-1">{errors.companyDocument}</p>}
                   </div>
                    </div>
                   <div className="flex gap-3 justify-between">
@@ -249,7 +264,7 @@ const FormRegister = () => {
                   placeholder="Valor da proposta"
                   value={formData.proposalValue}
                   onChange={handleChange} />
-                  {errors.proposalValue && <p className="text-destructive text-md -mt-5">{errors.proposalValue}</p>}
+                  {errors.proposalValue && <p className="text-destructive text-xs -mt-1">{errors.proposalValue}</p>}
                   </div>
                   <div className="flex-1">
                   <Input
@@ -279,10 +294,10 @@ const FormRegister = () => {
                   value={formData.password}
                   onChange={handleChange}
                   />
-                  {errors.password && <p className="text-destructive text-md -mt-5">{errors.password}</p>}  
+                  {errors.password && <p className="text-destructive text-xs -mt-1">{errors.password}</p>}  
                 </div>
               )}
-              <div className="flex flex-wrap gap-3 justify-end mt-5 pb-5">
+              <div className="flex flex-wrap gap-3 justify-end mt-2 pb-5">
               <Button
               type="button" 
               color="bg-muted"
