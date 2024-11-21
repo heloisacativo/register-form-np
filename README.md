@@ -1,8 +1,9 @@
-# React + Vite
+<img src="https://github.com/user-attachments/assets/2e67f5fb-b109-4bac-8169-8d11ad27dd1b" alt="Descrição da imagem" width="200px">
+# Register form Next Payment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Api gateway pdv.
 
-Currently, two official plugins are available:
+<img src="https://github.com/user-attachments/assets/f5571745-708e-47bd-89d8-cd7a74f0929a" alt="Descrição da imagem" >
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [x] RF01: Dever se possivel o usuário poder criar um empresa.
+- [x] RF02: Dever ser possivel o usuário se registrar na next payment.
