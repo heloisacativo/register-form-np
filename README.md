@@ -8,7 +8,7 @@
 ## RFs (Requisitos funcionais) 
 > obs: é uma declaração de como um sistema deve se comportar
 
-- [x] RF01: Dever se possivel o usuário poder criar um empresa.
+- [x] RF01: Dever se possivel o usuário poder criar uma empresa.
 - [x] RF02: Dever ser possivel o usuário se registrar na next payment.
 
 
